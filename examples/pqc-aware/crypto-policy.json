@@ -1,0 +1,7 @@
+{
+  "algorithm": "ML-KEM-768",
+  "signature_algorithm": "ML-DSA-65",
+  "fallback": {
+    "key_exchange": "X25519"
+  }
+}

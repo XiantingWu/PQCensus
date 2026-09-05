@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["schema_version", "benchmark", "scanner_version", "corpus_sha256", "summary", "cases", "deterministic", "schema_validation"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "benchmark": {"const": "QuantumGuardBench-EndToEnd"},
+    "scanner_version": {"type": "string"},
+    "corpus_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "deterministic": {"type": "boolean"},
+    "summary": {"type": "object", "required": ["repositories", "files", "findings", "observations_expected", "observations_matched"], "additionalProperties": true},
+    "cases": {"type": "array", "items": {"type": "object", "required": ["id", "deterministic", "observations", "dependencies"], "additionalProperties": true}},
+    "schema_validation": {"type": "object", "required": ["cyclonedx_1_7", "sarif_2_1_0_official"], "additionalProperties": true}
+  },
+  "additionalProperties": true
+}

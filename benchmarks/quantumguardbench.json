@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "benchmark": "QuantumGuardBench",
+  "label_policy": {
+    "authority": "deterministic-fixture-intent",
+    "method": "Labels are manually declared before scan comparison and are never generated from PQCensus output.",
+    "review_status": "author-curated-unreviewed",
+    "unknown_policy": "UNKNOWN is a distinct expected purpose and is never counted as a correct concrete purpose."
+  },
+  "cases": [
+    {
+      "id": "python-jwt-rs256",
+      "path": "corpus/synthetic/python-jwt-rs256",
+      "language": "python",
+      "category": "positive",
+      "labels": [
+        {"file": "app.py", "algorithm": "RSA", "purpose": "SIGNATURE", "severity": "HIGH", "analyzer": "python-ast", "migration_targets": ["ML-DSA", "SLH-DSA"]}
+      ]
+    },
+    {
+      "id": "python-rsa-oaep",
+      "path": "corpus/synthetic/python-rsa-oaep",
+      "language": "python",
+      "category": "positive",
+      "labels": [
+        {"file": "app.py", "algorithm": "RSA", "purpose": "ENCRYPTION", "severity": "HIGH", "analyzer": "python-ast", "migration_targets": ["ML-KEM"]}
+      ]
+    },
+    {
+      "id": "python-ecdsa",
+      "path": "corpus/synthetic/python-ecdsa",
+      "language": "python",
+      "category": "positive",
+      "labels": [
+        {"file": "app.py", "algorithm": "ECDSA", "purpose": "SIGNATURE", "severity": "HIGH", "analyzer": "python-ast", "migration_targets": ["ML-DSA", "SLH-DSA"]},
+        {"file": "app.py", "algorithm": "SHA-2/SHA-3", "purpose": "HASHING", "severity": "INFO", "analyzer": "python-ast"}
+      ]
+    },
+    {
+      "id": "python-ecdh",
+      "path": "corpus/synthetic/python-ecdh",
+      "language": "python",
+      "category": "positive",
+      "labels": [
+        {"file": "app.py", "algorithm": "ECDH", "purpose": "KEY_ESTABLISHMENT", "severity": "HIGH", "analyzer": "python-ast", "migration_targets": ["ML-KEM"]}
+      ]
+    },
+    {
+      "id": "python-x25519",
+      "path": "corpus/synthetic/python-x25519",
+      "language": "python",
+      "category": "positive",
+      "labels": [
+        {"file": "app.py", "algorithm": "X25519", "purpose": "KEY_ESTABLISHMENT", "severity": "HIGH", "analyzer": "python-ast", "migration_targets": ["ML-KEM"]}
+      ]
+    },
+    {
+      "id": "python-ed25519",
+      "path": "corpus/synthetic/python-ed25519",
+      "language": "python",
+      "category": "positive",
+      "labels": [
+        {"file": "app.py", "algorithm": "EdDSA", "purpose": "SIGNATURE", "severity": "HIGH", "analyzer": "python-ast", "migration_targets": ["ML-DSA", "SLH-DSA"]}
+      ]
+    },
+    {
+      "id": "python-dh",
+      "path": "corpus/synthetic/python-dh",
+      "language": "python",
+      "category": "positive",
+      "labels": [
+        {"file": "app.py", "algorithm": "finite-field DH", "purpose": "KEY_ESTABLISHMENT", "severity": "HIGH", "analyzer": "python-ast", "migration_targets": ["ML-KEM"]}
+      ]
+    },
+    {
+      "id": "python-hmac",
+      "path": "corpus/synthetic/python-hmac",
+      "language": "python",
+      "category": "safe",
+      "labels": [
+        {"file": "app.py", "algorithm": "HMAC", "purpose": "MAC", "severity": "INFO", "analyzer": "python-ast"}
+      ]
+    },
+    {
+      "id": "python-hash",
+      "path": "corpus/synthetic/python-hash",
+      "language": "python",
+      "category": "safe",
+      "labels": [
+        {"file": "app.py", "algorithm": "SHA-2/SHA-3", "purpose": "HASHING", "severity": "INFO", "analyzer": "python-ast"}
+      ]
+    },
+    {
+      "id": "config-ml-kem",
+      "path": "corpus/synthetic/config-ml-kem",
+      "language": "config",
+      "category": "config",
+      "labels": [
+        {"file": "policy.json", "algorithm": "ML-KEM", "purpose": "KEY_ESTABLISHMENT", "severity": "INFO", "analyzer": "structured-config"}
+      ]
+    },
+    {
+      "id": "config-ml-dsa",
+      "path": "corpus/synthetic/config-ml-dsa",
+      "language": "config",
+      "category": "config",
+      "labels": [
+        {"file": "policy.toml", "algorithm": "ML-DSA", "purpose": "SIGNATURE", "severity": "INFO", "analyzer": "structured-config"}
+      ]
+    },
+    {
+      "id": "python-rsa-alias-unknown",
+      "path": "corpus/synthetic/python-rsa-alias-unknown",
+      "language": "python",
+      "category": "alias",
+      "labels": [
+        {"file": "app.py", "algorithm": "RSA", "purpose": "UNKNOWN", "severity": "MEDIUM", "analyzer": "python-ast", "migration_targets": []}
+      ]
+    },
+    {
+      "id": "python-wrapper",
+      "path": "corpus/synthetic/python-wrapper",
+      "language": "python",
+      "category": "wrapper",
+      "labels": [
+        {"file": "app.py", "algorithm": "RSA", "purpose": "SIGNATURE", "severity": "HIGH", "analyzer": "python-ast", "migration_targets": ["ML-DSA", "SLH-DSA"]}
+      ]
+    },
+    {
+      "id": "python-comment-string-negative",
+      "path": "corpus/synthetic/python-comment-string-negative",
+      "language": "python",
+      "category": "negative",
+      "labels": []
+    },
+    {
+      "id": "python-unused-import-negative",
+      "path": "corpus/synthetic/python-unused-import-negative",
+      "language": "python",
+      "category": "negative",
+      "labels": []
+    },
+    {
+      "id": "python-shadow-negative",
+      "path": "corpus/synthetic/python-shadow-negative",
+      "language": "python",
+      "category": "negative",
+      "labels": []
+    },
+    {
+      "id": "config-jwt",
+      "path": "corpus/synthetic/config-jwt",
+      "language": "config",
+      "category": "config",
+      "labels": [
+        {"file": "security.json", "algorithm": "RSA", "purpose": "SIGNATURE", "severity": "HIGH", "analyzer": "structured-config", "migration_targets": ["ML-DSA", "SLH-DSA"]}
+      ]
+    },
+    {
+      "id": "python-tls-config",
+      "path": "corpus/synthetic/python-tls-config",
+      "language": "python",
+      "category": "config",
+      "labels": [
+        {"file": "app.py", "algorithm": "TLS", "purpose": "UNKNOWN", "severity": "LOW", "analyzer": "python-ast", "migration_targets": []},
+        {"file": "app.py", "algorithm": "RSA", "purpose": "KEY_ESTABLISHMENT", "severity": "HIGH", "analyzer": "python-ast", "migration_targets": ["ML-KEM"]}
+      ]
+    },
+    {
+      "id": "python-tls-ecdhe-generic",
+      "path": "corpus/synthetic/python-tls-ecdhe",
+      "language": "python",
+      "category": "adversarial-tls",
+      "labels": [
+        {"file": "app.py", "algorithm": "TLS", "purpose": "UNKNOWN", "severity": "LOW", "analyzer": "python-ast", "migration_targets": []},
+        {"file": "app.py", "algorithm": "ECDH", "purpose": "KEY_ESTABLISHMENT", "severity": "HIGH", "analyzer": "python-ast", "migration_targets": ["ML-KEM"]}
+      ]
+    },
+    {
+      "id": "python-x448",
+      "path": "corpus/synthetic/python-x448",
+      "language": "python",
+      "category": "adversarial-ec",
+      "labels": [
+        {"file": "app.py", "algorithm": "X448", "purpose": "KEY_ESTABLISHMENT", "severity": "HIGH", "analyzer": "python-ast", "migration_targets": ["ML-KEM"]}
+      ]
+    },
+    {
+      "id": "python-tls-check-hostname-assignment",
+      "path": "corpus/synthetic/python-tls-check-hostname",
+      "language": "python",
+      "category": "adversarial-tls",
+      "labels": [
+        {"file": "app.py", "algorithm": "TLS", "purpose": "UNKNOWN", "severity": "LOW", "analyzer": "python-ast", "migration_targets": []},
+        {"file": "app.py", "algorithm": "TLS-insecure", "purpose": "UNKNOWN", "severity": "HIGH", "analyzer": "python-ast", "migration_targets": []}
+      ]
+    },
+    {
+      "id": "python-tls-cert-none-assignment",
+      "path": "corpus/synthetic/python-tls-cert-none",
+      "language": "python",
+      "category": "adversarial-tls",
+      "labels": [
+        {"file": "app.py", "algorithm": "TLS", "purpose": "UNKNOWN", "severity": "LOW", "analyzer": "python-ast", "migration_targets": []},
+        {"file": "app.py", "algorithm": "TLS-insecure", "purpose": "UNKNOWN", "severity": "HIGH", "analyzer": "python-ast", "migration_targets": []}
+      ]
+    },
+    {
+      "id": "python-tls-safe-validation",
+      "path": "corpus/synthetic/python-tls-safe-validation",
+      "language": "python",
+      "category": "negative-tls",
+      "labels": [
+        {"file": "app.py", "algorithm": "TLS", "purpose": "UNKNOWN", "severity": "LOW", "analyzer": "python-ast", "migration_targets": []}
+      ]
+    },
+    {
+      "id": "python-tls-unrelated-attribute",
+      "path": "corpus/synthetic/python-tls-unrelated-attribute",
+      "language": "python",
+      "category": "negative-tls",
+      "labels": []
+    },
+    {
+      "id": "python-test-only",
+      "path": "corpus/synthetic/python-test-only",
+      "language": "python",
+      "category": "test-only",
+      "labels": [
+        {"file": "tests/test_token.py", "algorithm": "RSA", "purpose": "SIGNATURE", "severity": "MEDIUM", "analyzer": "python-ast", "migration_targets": ["ML-DSA", "SLH-DSA"]}
+      ]
+    },
+    {
+      "id": "python-dependency",
+      "path": "corpus/synthetic/python-dependency",
+      "language": "python",
+      "category": "dependency",
+      "labels": [],
+      "assets": [
+        {"asset_type": "crypto-library", "name": "cryptography"}
+      ]
+    }
+  ]
+}

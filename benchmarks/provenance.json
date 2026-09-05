@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "sources": {
+    "pyca-x25519": {
+      "repository": "https://github.com/pyca/cryptography",
+      "commit": "622d672e429a7cff836a23c5903683dbec1901f5",
+      "release": "46.0.7",
+      "source_path": "tests/hazmat/primitives/test_x25519.py",
+      "source_lines": "1-3, 6, 14-17, 55-62",
+      "upstream_sha256": "3f27a50949514b7ce8555026d600a775e036f0ea0486924decb325dd320f84e7",
+      "license": "Apache-2.0 OR BSD-3-Clause",
+      "label_basis": "X25519PrivateKey/X25519PublicKey construction and exchange have key-agreement semantics."
+    },
+    "pyca-rsa-pss": {
+      "repository": "https://github.com/pyca/cryptography",
+      "commit": "622d672e429a7cff836a23c5903683dbec1901f5",
+      "release": "46.0.7",
+      "source_path": "tests/hazmat/primitives/test_rsa.py",
+      "source_lines": "1-3, 15, 519-528",
+      "upstream_sha256": "1e67ac1d7047a57df0d1d53c5b6c00cc3dbcd510bbe6d37021ae352dfaf56df6",
+      "license": "Apache-2.0 OR BSD-3-Clause",
+      "label_basis": "PSS plus private-key sign/public-key verify is an RSA signature workflow."
+    },
+    "pyjwt-rs256": {
+      "repository": "https://github.com/jpadilla/pyjwt",
+      "commit": "7144e4534c34810f4525dc4578a32addd8212cff",
+      "release": "2.13.0",
+      "source_path": "tests/test_api_jws.py",
+      "source_lines": "4, 8, 565-570",
+      "upstream_sha256": "f8dd3664acc13c015a6e50553519180bb1edc0ea38228a29a8dfff706959d5fe",
+      "license": "MIT",
+      "label_basis": "RS256 is an RSA signature algorithm in a JWS encode call."
+    },
+    "pyjwt-registry-negative": {
+      "repository": "https://github.com/jpadilla/pyjwt",
+      "commit": "7144e4534c34810f4525dc4578a32addd8212cff",
+      "release": "2.13.0",
+      "source_path": "tests/test_api_jws.py",
+      "source_lines": "7-8, 752-759",
+      "upstream_sha256": "f8dd3664acc13c015a6e50553519180bb1edc0ea38228a29a8dfff706959d5fe",
+      "license": "MIT",
+      "label_basis": "Registry membership assertions contain names but do not perform cryptography."
+    },
+    "pycryptodome-oaep": {
+      "repository": "https://github.com/Legrandin/pycryptodome",
+      "commit": "cde63f8f9b64f1c8cd86249128cfd5986c2c43af",
+      "release": "v3.23.0",
+      "source_path": "lib/Crypto/SelfTest/Cipher/test_pkcs1_oaep.py",
+      "source_lines": "1-19, 27, 295-299",
+      "upstream_sha256": "30fce75b0ceabdbc3814890b732942e54afab32330aae76884112caec5ae4bd3",
+      "license": "public-domain dedication with permissive fallback",
+      "label_basis": "PKCS1_OAEP construction and encrypt call form an RSA-OAEP encryption workflow."
+    }
+  }
+}

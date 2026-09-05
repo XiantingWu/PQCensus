@@ -1,0 +1,60 @@
+# PQCensus self-scan suppression policy.
+#
+# This file is loaded because the production self-scan targets src/. Every entry
+# is deliberately rule- and path-scoped, carries a review reason, and expires so
+# that intentional internal cryptographic use is periodically re-evaluated.
+# Do not replace these entries with ALL or broad path globs.
+
+[[suppressions]]
+rule_id = "QG-SYMMETRIC-HASH"
+path = "quantumguard/util.py"
+reason = "SHA-256 is intentionally used for deterministic internal identities, not as Shor-vulnerable public-key cryptography."
+expires = "2027-08-31"
+
+[[suppressions]]
+rule_id = "QG-SYMMETRIC-HASH"
+path = "quantumguard/reporting.py"
+reason = "SHA-256 is intentionally used for deterministic report and evidence identities."
+expires = "2027-08-31"
+
+[[suppressions]]
+rule_id = "QG-SYMMETRIC-HASH"
+path = "quantumguard/models.py"
+reason = "SHA-256 is intentionally used for deterministic model and finding identities."
+expires = "2027-08-31"
+
+[[suppressions]]
+rule_id = "QG-SYMMETRIC-HASH"
+path = "quantumguard/migration/engine.py"
+reason = "SHA-256 is intentionally used for deterministic migration-plan identity."
+expires = "2027-08-31"
+
+[[suppressions]]
+rule_id = "QG-SYMMETRIC-HASH"
+path = "quantumguard/api.py"
+reason = "SHA-256 is intentionally used for deterministic audit identity and verification."
+expires = "2027-08-31"
+
+[[suppressions]]
+rule_id = "QG-UNKNOWN-CRYPTO"
+path = "quantumguard/tls.py"
+reason = "The bounded TLS inspection feature intentionally uses Python ssl APIs; this is product implementation, not unidentified target cryptography."
+expires = "2027-08-31"
+
+[[suppressions]]
+rule_id = "QG-ML-KEM"
+path = "quantumguard/reporting.py"
+reason = "ML-KEM appears as static rule/reporting metadata; no ML-KEM primitive is executed by reporting code."
+expires = "2027-08-31"
+
+[[suppressions]]
+rule_id = "QG-ML-KEM"
+path = "quantumguard/analyzers/python.py"
+reason = "ML-KEM appears in analyzer recognition tables; this is scanner metadata rather than product cryptographic use."
+expires = "2027-08-31"
+
+[[suppressions]]
+rule_id = "QG-ML-DSA"
+path = "quantumguard/analyzers/python.py"
+reason = "ML-DSA appears in analyzer recognition tables; this is scanner metadata rather than product cryptographic use."
+expires = "2027-08-31"

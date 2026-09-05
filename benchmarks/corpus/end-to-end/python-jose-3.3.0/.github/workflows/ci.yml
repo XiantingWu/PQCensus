@@ -1,0 +1,78 @@
+name: CI
+on:
+  push:
+    branches:
+      - "*"
+  pull_request:
+    branches:
+      - master
+jobs:
+  test:
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.6", "3.7", "3.8", "3.9", "pypy3"]
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        exclude:
+          - os: macos-latest
+            python-version:  "pypy3"
+          - os: windows-latest
+            python-version:  "pypy3"
+    runs-on: ${{ matrix.os }}
+    name: "${{ matrix.os }} Python: ${{ matrix.python-version }}"
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        pip install -U "pip>=21.1"
+        pip install -U setuptools
+        pip install -U "tox>=3.23.0,<4" codecov tox-gh-actions coverage
+    - name: Log python & pip versions
+      run: |
+        python --version
+        pip --version
+    - name: Run unit tests
+      run: tox
+    - name: "Coverage report"
+      run:  coverage xml
+    - name: "Upload coverage to Codecov"
+      uses: "codecov/codecov-action@v1"
+      with:
+        fail_ci_if_error: true
+  linting:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: |
+        pip install -U setuptools 
+        pip install -U "tox>=3.23.0,<4"
+    - run: tox -e lint
+  package:
+    name: "Build & verify package"
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "actions/checkout@v2"
+      - uses: "actions/setup-python@v2"
+        with:
+          python-version: "3.8"
+      - name: "Install build, check-wheel-content, and twine"
+        run: "python -m pip install build twine check-wheel-contents"
+      - name: "Build package"
+        run: "python -m build --sdist --wheel ."
+      - name: "List result"
+        run: "ls -l dist"
+      - name: "Check wheel contents"
+        run: "check-wheel-contents dist/*.whl"
+      - name: "Check long_description"
+        run: "python -m twine check dist/*"

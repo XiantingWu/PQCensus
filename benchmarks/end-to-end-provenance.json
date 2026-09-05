@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "sources": {
+    "python-jose-3.3.0": {
+      "repository": "https://github.com/mpdavis/python-jose",
+      "commit": "e5fcca27712c0ebdeb55d3c3cdad1c6e0f708ac3",
+      "tag": "3.3.0",
+      "source_path": "benchmarks/corpus/end-to-end/python-jose-3.3.0",
+      "source_tree_sha256": "5415b6526aa955c61606bbf7075ba32fd01299a693af5075ef851b6c709e0c7b",
+      "license": "MIT",
+      "license_file": "LICENSE",
+      "label_basis": "Manual review of the pinned jose backend and test call sites; required observations are a partial coverage set, not an exhaustive precision label."
+    },
+    "PyJWT-2.10.1": {
+      "repository": "https://github.com/jpadilla/pyjwt",
+      "commit": "3ebbb22f30f2b1b41727b269a08b427e9a85d6bb",
+      "tag": "2.10.1",
+      "source_path": "benchmarks/corpus/end-to-end/PyJWT-2.10.1",
+      "source_tree_sha256": "5e0f4914bb063fea5c442f2006e6f602ca903d718f68ea2ecfcf49797928ed4f",
+      "license": "MIT",
+      "license_file": "LICENSE",
+      "label_basis": "Manual review of the pinned JWT algorithm and JWS test call sites; required observations are a partial coverage set, not an exhaustive precision label."
+    }
+  }
+}

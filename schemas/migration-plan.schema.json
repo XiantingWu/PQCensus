@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://quantumguard.dev/schemas/migration-plan-1.json",
+  "title": "QuantumGuard migration plan",
+  "type": "object",
+  "required": ["schema_version", "plan_id", "finding_id", "affected_call_sites", "purpose", "current_primitive", "recommended_targets", "target_class", "compatibility_constraints", "required_abstraction_changes", "deployment_ordering", "rollback_considerations", "verification_steps", "urgency", "confidence", "unresolved_unknowns", "references"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "plan_id": {"type": "string", "pattern": "^QGP-[0-9a-f]{20}$"},
+    "purpose": {"enum": ["SIGNATURE", "KEY_ESTABLISHMENT", "ENCRYPTION", "HASHING", "MAC", "KDF", "CERTIFICATE", "UNKNOWN"]},
+    "recommended_targets": {"type": "array", "items": {"type": "string"}},
+    "confidence": {"enum": ["HIGH", "MEDIUM", "LOW", "UNKNOWN"]}
+  }
+}

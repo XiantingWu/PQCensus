@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://quantumguard.dev/schemas/finding-1.json",
+  "title": "QuantumGuard finding",
+  "type": "object",
+  "required": ["schema_version", "finding_id", "rule_id", "algorithm", "purpose", "source", "evidence", "confidence", "quantum_risk", "severity", "rationale", "migration_target", "analyzer", "status"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "finding_id": {"type": "string", "pattern": "^QG-[0-9a-f]{20}$"},
+    "rule_id": {"type": "string", "pattern": "^QG-[A-Z0-9-]+$"},
+    "algorithm": {"type": "string", "minLength": 1},
+    "purpose": {"enum": ["SIGNATURE", "KEY_ESTABLISHMENT", "ENCRYPTION", "HASHING", "MAC", "KDF", "CERTIFICATE", "UNKNOWN"]},
+    "source": {
+      "type": "object",
+      "required": ["path", "span"],
+      "properties": {
+        "path": {"type": "string"},
+        "span": {
+          "type": "object",
+          "required": ["start_line", "start_column"],
+          "properties": {
+            "start_line": {"type": "integer", "minimum": 1},
+            "start_column": {"type": "integer", "minimum": 0}
+          }
+        }
+      }
+    },
+    "evidence": {"type": "array", "minItems": 1},
+    "confidence": {"enum": ["HIGH", "MEDIUM", "LOW", "UNKNOWN"]},
+    "severity": {"enum": ["INFO", "LOW", "MEDIUM", "HIGH", "CRITICAL"]},
+    "status": {"enum": ["active", "suppressed"]}
+  }
+}

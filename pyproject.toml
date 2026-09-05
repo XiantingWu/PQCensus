@@ -1,0 +1,119 @@
+[build-system]
+requires = ["hatchling==1.32.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pqcensus"
+version = "0.1.0"
+description = "Evidence-grounded cryptographic inventory and post-quantum migration planning"
+readme = "README.md"
+requires-python = ">=3.11,<3.15"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+keywords = [
+  "post-quantum",
+  "pqc",
+  "cryptography",
+  "cryptographic-inventory",
+  "cbom",
+  "crypto-agility",
+  "migration-planning",
+  "static-analysis",
+  "sarif",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Security",
+  "Topic :: Software Development :: Quality Assurance",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "build==1.5.0",
+  "coverage==7.15.4",
+  "cyclonedx-python-lib[validation]==11.12.0",
+  "hatchling==1.32.0",
+  "jsonschema==4.26.0",
+  "mypy==2.3.1",
+  "pytest==9.1.1",
+  "pytest-cov==7.1.0",
+  "ruff==0.16.4",
+  "twine==7.0.0",
+  "zizmor==1.29.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/XiantingWu/PQCensus"
+Repository = "https://github.com/XiantingWu/PQCensus"
+Issues = "https://github.com/XiantingWu/PQCensus/issues"
+Documentation = "https://github.com/XiantingWu/PQCensus/tree/main/docs"
+Changelog = "https://github.com/XiantingWu/PQCensus/blob/main/CHANGELOG.md"
+Security = "https://github.com/XiantingWu/PQCensus/blob/main/SECURITY.md"
+
+[project.scripts]
+pqcensus = "quantumguard.cli:main"
+quantumguard = "quantumguard.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/quantumguard", "src/pqcensus"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"rules/quantumguard-rules.json" = "quantumguard/data/quantumguard-rules.json"
+"schemas" = "quantumguard/data/schemas"
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/src",
+  "/rules",
+  "/schemas",
+  "/README.md",
+  "/LICENSE",
+  "/pyproject.toml",
+]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+relative_files = true
+source = ["quantumguard", "pqcensus"]
+
+[tool.coverage.report]
+precision = 2
+show_missing = true
+skip_covered = false
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+# Keep the public lint contract explicit so a Ruff upgrade cannot silently
+# broaden lint rules. Formatting is enforced independently by ruff format.
+select = ["E4", "E7", "E9", "F", "I", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+# These two checkout-executable benchmark scripts intentionally insert the
+# repository src/ directory before importing PQCensus from that checkout.
+"scripts/run_end_to_end.py" = ["E402"]
+"scripts/run_quantumguardbench.py" = ["E402"]
+
+[tool.mypy]
+python_version = "3.11"
+files = ["src/pqcensus", "src/quantumguard"]
+check_untyped_defs = true
+disallow_incomplete_defs = true
+no_implicit_optional = true
+pretty = true
+show_error_codes = true
+warn_redundant_casts = true
+warn_unused_ignores = true

@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If PQCensus contributes to your work, cite the exact release and source commit."
+title: "PQCensus: Evidence-grounded cryptographic inventory and post-quantum migration planning"
+type: software
+authors:
+  - name: "Xianting Wu"
+version: "0.1.0"
+license: Apache-2.0
+repository-code: "https://github.com/XiantingWu/PQCensus"
+url: "https://github.com/XiantingWu/PQCensus"
+keywords:
+  - post-quantum cryptography
+  - cryptographic inventory
+  - CBOM
+  - crypto agility
+  - migration planning
+  - static analysis

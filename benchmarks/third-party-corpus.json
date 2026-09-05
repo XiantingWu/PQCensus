@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "purpose": "Machine-readable inventory for complete third-party benchmark snapshots.",
+  "sources": [
+    {
+      "project": "PyJWT",
+      "version": "2.10.1",
+      "upstream_repository": "https://github.com/jpadilla/pyjwt",
+      "upstream_commit": "3ebbb22f30f2b1b41727b269a08b427e9a85d6bb",
+      "upstream_tag": "2.10.1",
+      "source_url": "https://github.com/jpadilla/pyjwt/tree/3ebbb22f30f2b1b41727b269a08b427e9a85d6bb",
+      "snapshot_path": "benchmarks/corpus/end-to-end/PyJWT-2.10.1",
+      "source_tree_sha256": "5e0f4914bb063fea5c442f2006e6f602ca903d718f68ea2ecfcf49797928ed4f",
+      "license_spdx": "MIT",
+      "copyright_holder": "José Padilla",
+      "license_file": "benchmarks/corpus/end-to-end/PyJWT-2.10.1/LICENSE",
+      "license_sha256": "797a7a20231d4c433e9f1911db1731d06b5828b98f499819a034f7c0f56f5ce5",
+      "notice_file": "benchmarks/THIRD_PARTY_NOTICES.md",
+      "snapshot_purpose": "non-executed benchmark fixture",
+      "modified": false,
+      "modifications": "No source-file modifications; VCS metadata is not part of the snapshot."
+    },
+    {
+      "project": "python-jose",
+      "version": "3.3.0",
+      "upstream_repository": "https://github.com/mpdavis/python-jose",
+      "upstream_commit": "e5fcca27712c0ebdeb55d3c3cdad1c6e0f708ac3",
+      "upstream_tag": "3.3.0",
+      "source_url": "https://github.com/mpdavis/python-jose/tree/e5fcca27712c0ebdeb55d3c3cdad1c6e0f708ac3",
+      "snapshot_path": "benchmarks/corpus/end-to-end/python-jose-3.3.0",
+      "source_tree_sha256": "5415b6526aa955c61606bbf7075ba32fd01299a693af5075ef851b6c709e0c7b",
+      "license_spdx": "MIT",
+      "copyright_holder": "Michael Davis",
+      "license_file": "benchmarks/corpus/end-to-end/python-jose-3.3.0/LICENSE",
+      "license_sha256": "a5e618eee6d496f77ad8ae70fea6edf148159558e2d228787d9076c900a2f926",
+      "notice_file": "benchmarks/THIRD_PARTY_NOTICES.md",
+      "snapshot_purpose": "non-executed benchmark fixture",
+      "modified": false,
+      "modifications": "No source-file modifications; VCS metadata is not part of the snapshot."
+    }
+  ]
+}

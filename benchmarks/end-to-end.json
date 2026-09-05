@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "benchmark": "QuantumGuardBench-EndToEnd",
+  "provenance": "end-to-end-provenance.json",
+  "label_policy": {
+    "authority": "manual-curated-third-party",
+    "method": "Required observations and dependency expectations were selected by manual source review before scanner comparison. They are coverage assertions, not an exhaustive label set and must not be used as precision claims.",
+    "review_status": "author-curated-unreviewed",
+    "unit": "repository-smoke",
+    "unknown_policy": "UNKNOWN observations are preserved and never converted into concrete-purpose labels."
+  },
+  "cases": [
+    {
+      "id": "e2e-python-jose-3.3.0",
+      "path": "corpus/end-to-end/python-jose-3.3.0",
+      "language": "python",
+      "provenance_id": "python-jose-3.3.0",
+      "expected_dependencies": ["ecdsa", "pycryptodome", "rsa"],
+      "minimum_findings": 10,
+      "required_observations": [
+        {"file": "jose/backends/cryptography_backend.py", "line": 154, "algorithm": "ECDSA", "purpose": "SIGNATURE"},
+        {"file": "jose/backends/cryptography_backend.py", "line": 223, "algorithm": "RSA", "purpose": "SIGNATURE"},
+        {"file": "jose/backends/cryptography_backend.py", "line": 224, "algorithm": "RSA", "purpose": "ENCRYPTION"},
+        {"file": "jose/backends/rsa_backend.py", "line": 204, "algorithm": "RSA", "purpose": "SIGNATURE"},
+        {"file": "jose/backends/rsa_backend.py", "line": 276, "algorithm": "RSA", "purpose": "ENCRYPTION"},
+        {"file": "jose/backends/native.py", "line": 66, "algorithm": "HMAC", "purpose": "MAC"}
+      ]
+    },
+    {
+      "id": "e2e-pyjwt-2.10.1",
+      "path": "corpus/end-to-end/PyJWT-2.10.1",
+      "language": "python",
+      "provenance_id": "PyJWT-2.10.1",
+      "expected_dependencies": ["cryptography"],
+      "minimum_findings": 10,
+      "required_observations": [
+        {"file": "jwt/algorithms.py", "line": 477, "algorithm": "RSA", "purpose": "SIGNATURE"},
+        {"file": "jwt/algorithms.py", "line": 530, "algorithm": "ECDSA", "purpose": "SIGNATURE"},
+        {"file": "jwt/algorithms.py", "line": 868, "algorithm": "EdDSA", "purpose": "SIGNATURE"},
+        {"file": "tests/test_api_jws.py", "line": 195, "algorithm": "ECDSA", "purpose": "SIGNATURE"},
+        {"file": "tests/test_api_jws.py", "line": 378, "algorithm": "RSA", "purpose": "SIGNATURE"},
+        {"file": "tests/test_api_jws.py", "line": 92, "algorithm": "HMAC", "purpose": "MAC"}
+      ]
+    }
+  ]
+}

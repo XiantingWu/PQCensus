@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://quantumguard.dev/schemas/cbom-1.json",
+  "title": "QuantumGuard native CBOM",
+  "type": "object",
+  "required": ["schema_version", "format", "cyclonedx_compatibility", "application", "components", "dependencies", "content_sha256"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "format": {"const": "QuantumGuard-CBOM"},
+    "cyclonedx_compatibility": {"const": "not-claimed"},
+    "application": {"type": "object", "required": ["name", "type"]},
+    "components": {"type": "array"},
+    "dependencies": {"type": "array"},
+    "content_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "QuantumGuard rule database",
+  "type": "object",
+  "required": ["schema_version", "policy_version", "profiles", "authorities", "rules"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "policy_version": {"type": "string"},
+    "profiles": {"type": "object"},
+    "authorities": {"type": "object"},
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "category", "algorithm_family", "purposes", "quantum_status", "default_severity", "recommendation", "migration_targets", "authority_ids", "status", "effective_version", "deprecated", "profiles", "interpretation"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^QG-[A-Z0-9-]+$"},
+          "purposes": {"type": "array", "items": {"type": "string"}},
+          "authority_ids": {"type": "array", "items": {"type": "string"}},
+          "migration_targets": {"type": "array", "items": {"type": "string"}},
+          "effective_version": {"type": "string"},
+          "deprecated": {"type": "boolean"},
+          "profiles": {"type": "array", "items": {"type": "string"}},
+          "interpretation": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

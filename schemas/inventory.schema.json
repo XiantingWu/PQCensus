@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://quantumguard.dev/schemas/inventory-1.json",
+  "title": "QuantumGuard cryptographic inventory",
+  "type": "object",
+  "required": ["schema_version", "tool", "repository", "assets", "dependencies", "content_sha256"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "assets": {"type": "array"},
+    "dependencies": {"type": "array"},
+    "content_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

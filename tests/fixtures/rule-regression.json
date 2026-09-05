@@ -1,0 +1,117 @@
+{
+ "schema_version": 1,
+ "cases": [
+  {
+   "rule_id": "QG-RSA-SIGNATURE",
+   "expected_severity": "HIGH",
+   "path": "app.py",
+   "positive": "import jwt\njwt.encode({'sub': 'x'}, 'key', algorithm='RS256')\n",
+   "negative": "message = 'RS256 is documentation only'\n"
+  },
+  {
+   "rule_id": "QG-RSA-KEY-TRANSPORT",
+   "expected_severity": "HIGH",
+   "path": "app.py",
+   "positive": "from Crypto.Cipher import PKCS1_OAEP\nPKCS1_OAEP.new(object())\n",
+   "negative": "# PKCS1_OAEP.new(key) is documentation only\n"
+  },
+  {
+   "rule_id": "QG-ECDSA-SIGNATURE",
+   "expected_severity": "HIGH",
+   "path": "app.py",
+   "positive": "from cryptography.hazmat.primitives.asymmetric import ec\nec.ECDSA(object())\n",
+   "negative": "message = 'ECDSA migration note'\n"
+  },
+  {
+   "rule_id": "QG-ECDH-KEY-ESTABLISHMENT",
+   "expected_severity": "HIGH",
+   "path": "app.py",
+   "positive": "from cryptography.hazmat.primitives.asymmetric import ec\nec.ECDH()\n",
+   "negative": "# ec.ECDH() is not executed here\n"
+  },
+  {
+   "rule_id": "QG-X25519-KEY-ESTABLISHMENT",
+   "expected_severity": "HIGH",
+   "path": "app.py",
+   "positive": "from cryptography.hazmat.primitives.asymmetric import x25519\nx25519.X25519PrivateKey.generate()\n",
+   "negative": "message = 'X25519 is mentioned in prose'\n"
+  },
+  {
+   "rule_id": "QG-X448-KEY-ESTABLISHMENT",
+   "expected_severity": "HIGH",
+   "path": "app.py",
+   "positive": "from cryptography.hazmat.primitives.asymmetric import x448\nx448.X448PrivateKey.generate()\n",
+   "negative": "message = 'X448 is mentioned in prose'\n"
+  },
+  {
+   "rule_id": "QG-DH-KEY-ESTABLISHMENT",
+   "expected_severity": "HIGH",
+   "path": "app.py",
+   "positive": "from cryptography.hazmat.primitives.asymmetric import dh\ndh.generate_parameters(generator=2, key_size=2048)\n",
+   "negative": "# dh.generate_parameters(generator=2, key_size=2048)\n"
+  },
+  {
+   "rule_id": "QG-EDDSA-SIGNATURE",
+   "expected_severity": "HIGH",
+   "path": "app.py",
+   "positive": "from cryptography.hazmat.primitives.asymmetric import ed25519\ned25519.Ed25519PrivateKey.generate()\n",
+   "negative": "message = 'Ed25519 documentation'\n"
+  },
+  {
+   "rule_id": "QG-ML-KEM",
+   "expected_severity": "INFO",
+   "path": "security.json",
+   "positive": "{\"key_exchange\": \"ML-KEM-768\"}\n",
+   "negative": "{\"note\": \"ML-KEM-768\"}\n"
+  },
+  {
+   "rule_id": "QG-ML-DSA",
+   "expected_severity": "INFO",
+   "path": "security.json",
+   "positive": "{\"signature_algorithm\": \"ML-DSA-65\"}\n",
+   "negative": "{\"note\": \"ML-DSA-65\"}\n"
+  },
+  {
+   "rule_id": "QG-SLH-DSA",
+   "expected_severity": "INFO",
+   "path": "security.json",
+   "positive": "{\"signature_algorithm\": \"SLH-DSA-SHA2-128s\"}\n",
+   "negative": "{\"note\": \"SLH-DSA-SHA2-128s\"}\n"
+  },
+  {
+   "rule_id": "QG-SYMMETRIC-HASH",
+   "expected_severity": "INFO",
+   "path": "app.py",
+   "positive": "import hashlib\nhashlib.sha256(b'data')\n",
+   "negative": "message = 'hashlib.sha256 is documentation'\n"
+  },
+  {
+   "rule_id": "QG-HMAC",
+   "expected_severity": "INFO",
+   "path": "app.py",
+   "positive": "import hmac\nhmac.new(b'key', b'data')\n",
+   "negative": "message = 'hmac.new is documentation'\n"
+  },
+  {
+   "rule_id": "QG-UNKNOWN-CRYPTO",
+   "expected_severity": "MEDIUM",
+   "path": "app.py",
+   "positive": "from cryptography.hazmat.primitives.asymmetric import rsa\nrsa.generate_private_key(public_exponent=65537, key_size=2048)\n",
+   "negative": "message = 'RSA key generation is discussed only'\n"
+  },
+  {
+   "rule_id": "QG-TLS-LEGACY-PROTOCOL",
+   "expected_severity": "HIGH",
+   "path": "app.py",
+   "positive": "import ssl\nssl.wrap_socket(object())\n",
+   "negative": "message = 'ssl.wrap_socket is documentation only'\n"
+  },
+  {
+   "rule_id": "QG-TLS-INSECURE-CONFIG",
+   "expected_severity": "HIGH",
+   "path": "app.py",
+   "positive": "import ssl\nssl.create_default_context(check_hostname=False)\n",
+   "negative": "message = 'check_hostname=False is documentation only'\n"
+  }
+ ]
+}

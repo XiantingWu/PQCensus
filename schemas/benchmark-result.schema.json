@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://quantumguard.dev/schemas/benchmark-result-1.json",
+  "title": "QuantumGuardBench result",
+  "type": "object",
+  "required": ["schema_version", "benchmark", "scanner_version", "corpus_sha256", "rules_sha256", "summary", "breakdowns", "deterministic", "migration_mapping", "severity_mapping", "schema_validation", "performance"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "benchmark": {"const": "QuantumGuardBench"},
+    "scanner_version": {"type": "string"},
+    "corpus_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "rules_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "summary": {
+      "type": "object",
+      "required": ["true_positive", "false_positive", "false_negative", "precision", "recall", "f1"]
+    },
+    "breakdowns": {"type": "object"},
+    "deterministic": {"type": "boolean"},
+    "migration_mapping": {"type": "object"},
+    "severity_mapping": {"type": "object"},
+    "schema_validation": {"type": "object"},
+    "performance": {"type": "object"}
+  }
+}

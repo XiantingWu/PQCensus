@@ -1,0 +1,21 @@
+# Canonical project-authored text uses LF on every platform so release-source
+# fingerprints do not depend on a contributor's core.autocrlf setting.
+* text=auto eol=lf
+
+# Keep project-authored source and contract files canonical across platforms.
+*.py text eol=lf
+*.sh text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.toml text eol=lf
+*.md text eol=lf
+
+# Pinned benchmark snapshots are provenance-bound third-party bytes. Never let
+# checkout/add filters rewrite their original line endings or other text bytes.
+benchmarks/corpus/** -text whitespace=-blank-at-eol,-blank-at-eof,-conflict-marker,cr-at-eol
+
+# This upstream RST title is seven literal '=' characters, not a merge marker.
+# Keep its bytes exact while preventing Git's conflict-marker check from
+# misclassifying the heading during the initial source commit.
+benchmarks/corpus/end-to-end/PyJWT-2.10.1/AUTHORS.rst -diff

@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "purpose": "Exact byte allowlist for public upstream test-key fixtures in the end-to-end benchmark corpus.",
+  "policy": "Only these independently identified upstream fixture files may contain PEM private-key markers; every listed hash and path is release-bound.",
+  "entries": [
+    {
+      "path": "benchmarks/corpus/end-to-end/PyJWT-2.10.1/docs/usage.rst",
+      "sha256": "fcb898dd5b4a8b6b783ff98c432da2588c7753edc9346a23a0477660f389bf7b",
+      "upstream_project": "PyJWT",
+      "upstream_commit_or_tag": "2.10.1",
+      "reason": "Upstream documentation embeds public test PEM examples."
+    },
+    {
+      "path": "benchmarks/corpus/end-to-end/PyJWT-2.10.1/tests/keys/testkey_ec.priv",
+      "sha256": "99e0e20204ddaa78ff48c13778d2b355f07d986b946a7537c21917427d8fe375",
+      "upstream_project": "PyJWT",
+      "upstream_commit_or_tag": "2.10.1",
+      "reason": "Upstream test fixture used by the pinned end-to-end snapshot."
+    },
+    {
+      "path": "benchmarks/corpus/end-to-end/PyJWT-2.10.1/tests/keys/testkey_ec_secp192r1.priv",
+      "sha256": "f0df30bff22054fb12a7f5844f2fc73f31c93de47605052077ee9e72041b52bf",
+      "upstream_project": "PyJWT",
+      "upstream_commit_or_tag": "2.10.1",
+      "reason": "Upstream test fixture used by the pinned end-to-end snapshot."
+    },
+    {
+      "path": "benchmarks/corpus/end-to-end/PyJWT-2.10.1/tests/keys/testkey_ed25519",
+      "sha256": "dcfe6be1a60c408e4350eadf1ea122fe8b2a48b7138565f23d4d8303b33547fa",
+      "upstream_project": "PyJWT",
+      "upstream_commit_or_tag": "2.10.1",
+      "reason": "Upstream test fixture used by the pinned end-to-end snapshot."
+    },
+    {
+      "path": "benchmarks/corpus/end-to-end/PyJWT-2.10.1/tests/keys/testkey_rsa.priv",
+      "sha256": "12df40e29c5f15c5fc56b600168c15a50670dccb3fe8ea98b5ac94c6b9b52050",
+      "upstream_project": "PyJWT",
+      "upstream_commit_or_tag": "2.10.1",
+      "reason": "Upstream test fixture used by the pinned end-to-end snapshot."
+    },
+    {
+      "path": "benchmarks/corpus/end-to-end/PyJWT-2.10.1/tests/test_advisory.py",
+      "sha256": "c8e0e5ce3937e91107f526f8148f35ef3b04b19bab4626cae0166edefab3bcf7",
+      "upstream_project": "PyJWT",
+      "upstream_commit_or_tag": "2.10.1",
+      "reason": "Upstream advisory test contains public test-key material."
+    },
+    {
+      "path": "benchmarks/corpus/end-to-end/python-jose-3.3.0/tests/algorithms/test_EC.py",
+      "sha256": "d6c31268826e93b374d3392fb6c936a6bb3cc58723fb2e79904e2007216567a8",
+      "upstream_project": "python-jose",
+      "upstream_commit_or_tag": "3.3.0",
+      "reason": "Upstream algorithm test contains public test-key material."
+    },
+    {
+      "path": "benchmarks/corpus/end-to-end/python-jose-3.3.0/tests/algorithms/test_RSA.py",
+      "sha256": "c59391623c49efb9aea99dae4929306c427f961043b253f0812e0cf38e34fbee",
+      "upstream_project": "python-jose",
+      "upstream_commit_or_tag": "3.3.0",
+      "reason": "Upstream algorithm test contains public test-key material."
+    },
+    {
+      "path": "benchmarks/corpus/end-to-end/python-jose-3.3.0/tests/test_jwe.py",
+      "sha256": "eebb1343f2265f2de17c0df518808acb6863be0235b45c5d525dc78ade712917",
+      "upstream_project": "python-jose",
+      "upstream_commit_or_tag": "3.3.0",
+      "reason": "Upstream JWE test contains public test-key material."
+    },
+    {
+      "path": "benchmarks/corpus/end-to-end/python-jose-3.3.0/tests/test_jws.py",
+      "sha256": "f1c5d6a3e1b7a6b05e5ee595eef0d94606d67ed74c1179b30dd8a7317e50ab3d",
+      "upstream_project": "python-jose",
+      "upstream_commit_or_tag": "3.3.0",
+      "reason": "Upstream JWS test contains public test-key material."
+    }
+  ]
+}

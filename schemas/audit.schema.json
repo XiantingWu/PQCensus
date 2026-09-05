@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://quantumguard.dev/schemas/audit-1.json",
+  "title": "QuantumGuard audit",
+  "type": "object",
+  "required": ["schema_version", "tool", "repository", "summary", "findings", "inventory", "dependencies", "migration_plans", "crypto_agility", "hndl", "suppressions", "limits"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "tool": {"type": "object", "required": ["name", "version"]},
+    "repository": {"type": "string"},
+    "summary": {"type": "object"},
+    "findings": {"type": "array"},
+    "inventory": {"type": "array"},
+    "dependencies": {"type": "array"},
+    "migration_plans": {"type": "array"},
+    "crypto_agility": {"type": "object"},
+    "hndl": {"type": "object"},
+    "suppressions": {"type": "array"},
+    "limits": {"type": "object"}
+  }
+}

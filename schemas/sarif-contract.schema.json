@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://quantumguard.dev/schemas/sarif-contract-1.json",
+  "title": "QuantumGuard SARIF contract subset",
+  "type": "object",
+  "required": ["$schema", "version", "runs"],
+  "properties": {
+    "version": {"const": "2.1.0"},
+    "runs": {"type": "array", "minItems": 1}
+  }
+}
